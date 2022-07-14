@@ -15,6 +15,7 @@
     <link href="css/container.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
     <link href="css/buttonNewTask.css" rel="stylesheet">
+    <script defer src="js/script.js"></script>
     <title>Lista zadań</title>
 </head>
 
@@ -28,8 +29,8 @@
                 <h2 class="container__header">Dodaj nowe zadanie</h2>
             </div>
             <div>
-                <form class="form">
-                    <input class="form__input" placeholder="Co jest do zrobienia?">
+                <form class="form js-form">
+                    <input class="form__input js-newTask" placeholder="Co jest do zrobienia?">
                     <button class="buttonNewTask">Dodaj zadanie</button>
                 </form>
             </div>
@@ -39,7 +40,7 @@
                 <h2 class="container__header">Lista zadań</h2>
             </div>
             <div>
-                <ul>test</ul>
+                <ul class="js-tasks"></ul>
             </div>
         </section>
     </main>
