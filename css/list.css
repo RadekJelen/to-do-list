@@ -1,0 +1,14 @@
+.list {
+    padding: 20px;
+    margin: 0;
+}
+
+.list__item {
+    list-style-type: none;
+    border-bottom: 2px solid #eee;
+    padding: 10px;
+}
+
+.list__item--done{
+    text-decoration: line-through;
+}
