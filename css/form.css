@@ -8,3 +8,9 @@
     padding: 8px;
     border: 2px solid #ddd;
 }
+.form__button {
+    background-color: teal;
+    border: none;
+    color: #fff;
+    padding: 10px
+}
