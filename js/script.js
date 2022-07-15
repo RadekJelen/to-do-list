@@ -10,6 +10,11 @@
         },
     ];
 
+    const autofokusInput = (newTaskElement) => {
+        newTaskElement.value = "";
+        newTaskElement.focus();
+    };
+
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
@@ -56,8 +61,8 @@
             <li
             class="list__item${task.done ? " list__item--done" : ""}"
             >
-                <button class="js-done">zrobione?</button>
-                <button class="js-remove">usuń</button>
+                <button class="list-button js-done">&#10004</button>
+                <button class="list-button list-button--remove js-remove">&#128465</button>
                 ${task.content} 
             </li>
             `;
@@ -71,13 +76,15 @@
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        const newTaskContent = document.querySelector(".js-newTask").value.trim(); 
+        const newTaskElement = document.querySelector(".js-newTask");
+        const newTaskContent = newTaskElement.value.trim();
 
             if (newTaskContent === "") { 
                 return;
             }; 
 
             addNewTask(newTaskContent);
+            autofokusInput(newTaskElement);
     };
 
     const init = () => {
