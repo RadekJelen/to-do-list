@@ -1,14 +1,42 @@
 .list {
     padding: 20px;
     margin: 0;
+    word-break: break-word 
 }
 
 .list__item {
     list-style-type: none;
     border-bottom: 2px solid #eee;
     padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
-.list__item--done{
-    text-decoration: line-through;
+
+.list__span {
+    margin: 0 15px;
+    flex-grow: 1;
 }
+
+.list__span--done {
+    text-decoration: line-through; 
+}
+
+.list__button {
+    height: 25px;
+    width: 25px;
+    color:#fff;
+    background-color: #1A7B1F;
+    border: none;
+    font-size: 15px;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.list__button--remove {
+    background-color: #ED293C;
+}
+
+.list__button:focus {
+    outline: 2px solid #000;
+}    

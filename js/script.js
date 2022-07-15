@@ -59,11 +59,13 @@
 
             htmlString += ` 
             <li
-            class="list__item${task.done ? " list__item--done" : ""}"
+            class="list__item${task.done ? "" : ""}"
             >
-                <button class="list-button js-done">&#10004</button>
-                <button class="list-button list-button--remove js-remove">&#128465</button>
-                ${task.content} 
+                <button class="list__button js-done">&#10004</button>
+                <span class="list__span ${task.done ? "list__span--done" : ""}">
+                ${task.content}
+                </span>
+                <button class="list__button list__button--remove js-remove">&#128465</button>
             </li>
             `;
         };
