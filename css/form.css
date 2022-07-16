@@ -3,18 +3,33 @@
     display: flex;
 }
 .form__input {
-    flex-grow: 1;
     margin-right: 10px;
     padding: 8px;
     border: 2px solid #ddd;
+    flex-grow: 1;
 }
 .form__button {
     background-color: teal;
-    border: none;
     color: #fff;
-    padding: 10px
+    padding: 10px;
+    border: none;
 }
 
 .form__button:focus {
     outline: 2px solid #000;
-}    
+}
+
+@media (max-width: 767px) {
+    .form {
+        flex-wrap: wrap;
+    }
+
+    .form__input {
+        margin-right: 0;
+    }
+    
+    .form__button {
+        margin: 10px 0;
+        flex-basis: 100%
+    }
+}

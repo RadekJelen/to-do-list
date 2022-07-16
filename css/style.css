@@ -9,4 +9,5 @@ html {
 .body {
     font-family: 'Open Sans', sans-serif;
     background-color: #eee;
+    padding: 20px;
 }
