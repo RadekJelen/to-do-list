@@ -1,14 +1,5 @@
 {
-    const tasks = [
-        {
-            content: "test",
-            done: false,
-        },
-        {
-            content: "test",
-            done: true,
-        },
-    ];
+    const tasks = [];
 
     const autofokusInput = (newTaskElement) => {
         newTaskElement.value = "";
