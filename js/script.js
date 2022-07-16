@@ -1,95 +1,92 @@
 {
-    const tasks = [];
+	const tasks = [];
 
-    const autofokusInput = (newTaskElement) => {
-        newTaskElement.value = "";
-        newTaskElement.focus();
-    };
+	const autofocusInput = (inputElement) => {
+		inputElement.value = "";
+		inputElement.focus();
+	};
 
-    const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
-        render();
-    };
+	const addNewTask = (newTaskContent) => {
+		tasks.push({
+			content: newTaskContent,
+			done: false,
+		});
+		render();
+	};
 
-    const deleteTask = (taskIndex) => {
-        tasks.splice(taskIndex, 1);
+	const deleteTask = (taskIndex) => {
+		tasks.splice(taskIndex, 1);
 
-        render();
-        };
+		render();
+	};
 
-    const toggleTaskDone = (taskIndex) => {
-        tasks[taskIndex].done = !tasks[taskIndex].done;
-        render();
-    };
+	const toggleTaskDone = (taskIndex) => {
+		tasks[taskIndex].done = !tasks[taskIndex].done;
+		render();
+	};
 
-    const addEvents = () => {
-        const removeButtons = document.querySelectorAll(".js-remove"); 
+	const addEvents = () => {
+		const removeButtons = document.querySelectorAll(".js-remove");
+		const doneButtons = document.querySelectorAll(".js-done");  
 
-        removeButtons.forEach((removeButton, index) => { 
-            removeButton.addEventListener("click", () => { 
-                deleteTask(index); 
-            });
-        });
+		removeButtons.forEach((removeButton, index) => {
+			removeButton.addEventListener("click", () => {
+				deleteTask(index); 
+			});
+		});
 
-        const toggleDoneButtons = document.querySelectorAll(".js-done"); 
+		doneButtons.forEach((doneButton, index) => {
+			doneButton.addEventListener("click", () => {
+				toggleTaskDone(index);
+			});
+		});
+	};
 
-            toggleDoneButtons.forEach((toggleDoneButton, index) => { 
-                toggleDoneButton.addEventListener("click", () => { 
-                    toggleTaskDone(index); 
-            });
-        });
-    };
+	const render = () => {
+		let htmlString = "";
 
+		for (const task of tasks) {
+			htmlString += `
+				<li class="list__item">
+					<button class="list__button js-done">
+						${task.done ? "&#10004;" : ""}
+					</button>
+					<span class="list__span ${task.done ? "list__span--done" : ""}">
+						${task.content}
+					</span>
+					<button class="list__button list__button--remove js-remove">
+						&#128465
+					</button>
+				</li>
+			`;
+		};
 
-    const render = () => {
-        let htmlString = "";
+		document.querySelector(".js-tasks").innerHTML = htmlString;
 
-        for (const task of tasks) {
+		addEvents();
+	};
 
-            htmlString += ` 
-            <li
-            class="list__item${task.done ? "" : ""}"
-            >
-                <button class="list__button js-done">
-                ${task.done ? "&#10004;" : ""}
-                </button>
-                <span class="list__span ${task.done ? "list__span--done" : ""}">
-                ${task.content}
-                </span>
-                <button class="list__button list__button--remove js-remove">&#128465
-                </button>
-            </li>
-            `;
-        };
+	const onFormSubmit = (event) => {
+		event.preventDefault();
 
-        document.querySelector(".js-tasks").innerHTML = htmlString;
+		const inputElement = document.querySelector(".js-input");
+		const newTaskContent = inputElement.value.trim();
 
-        addEvents();
-    };
+		if (newTaskContent === "") { 
+			return;
+		}; 
 
-    const onFormSubmit = (event) => {
-        event.preventDefault();
+		addNewTask(newTaskContent);
+		autofocusInput(inputElement);
+	};
 
-        const newTaskElement = document.querySelector(".js-newTask");
-        const newTaskContent = newTaskElement.value.trim();
+	const init = () => {
+		const formElement = document.querySelector(".js-form");
 
-            if (newTaskContent === "") { 
-                return;
-            }; 
+		render();
 
-            addNewTask(newTaskContent);
-            autofokusInput(newTaskElement);
-    };
+		formElement.addEventListener("submit", onFormSubmit);
+	};
 
-    const init = () => {
-        render();
-
-        const form = document.querySelector(".js-form");
-
-        form.addEventListener("submit", onFormSubmit);
-    };
-
-    init();
+	init();
 }
