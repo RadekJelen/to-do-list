@@ -61,11 +61,14 @@
             <li
             class="list__item${task.done ? "" : ""}"
             >
-                <button class="list__button js-done">&#10004</button>
+                <button class="list__button js-done">
+                ${task.done ? "&#10004;" : ""}
+                </button>
                 <span class="list__span ${task.done ? "list__span--done" : ""}">
                 ${task.content}
                 </span>
-                <button class="list__button list__button--remove js-remove">&#128465</button>
+                <button class="list__button list__button--remove js-remove">&#128465
+                </button>
             </li>
             `;
         };
