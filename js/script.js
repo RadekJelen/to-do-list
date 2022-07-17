@@ -11,6 +11,7 @@
 			content: newTaskContent,
 			done: false,
 		});
+
 		render();
 	};
 
@@ -22,6 +23,7 @@
 
 	const toggleTaskDone = (taskIndex) => {
 		tasks[taskIndex].done = !tasks[taskIndex].done;
+		
 		render();
 	};
 
