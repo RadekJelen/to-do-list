@@ -1,9 +1,9 @@
-.container {
+.section {
 	background-color: #fff;
 	margin-bottom: 10px;
 }
 
-.container__header {
+.section__header {
 	margin: 0;
 	padding: 20px;
 	font-size: 20px;
