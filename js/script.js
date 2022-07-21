@@ -1,5 +1,5 @@
 {
-	const tasks = [];
+	let tasks = [];
 
 	const autofocusInput = (inputElement) => {
 		inputElement.value = "";
@@ -7,25 +7,32 @@
 	};
 
 	const addNewTask = (newTaskContent) => {
-		tasks.push({
-			content: newTaskContent,
+		tasks = [
+			...tasks,
+			{content: newTaskContent,
 			done: false,
-		});
-
+			},
+		];
 		render();
 	};
 
 	const deleteTask = (taskIndex) => {
-		tasks.splice(taskIndex, 1);
-
-		render();
-	};
+    tasks = [
+      ...tasks.slice(0, taskIndex),
+      ...tasks.slice(taskIndex + 1),
+    ];
+    render();
+  };
 
 	const toggleTaskDone = (taskIndex) => {
-		tasks[taskIndex].done = !tasks[taskIndex].done;
-		
+		tasks = [
+			...tasks.slice(0, taskIndex),
+			{ ...tasks[taskIndex], done: !tasks[taskIndex].done, },
+			...tasks.slice(taskIndex + 1),
+		];
 		render();
 	};
+
 
 	const addEvents = () => {
 		const removeButtons = document.querySelectorAll(".js-remove");
