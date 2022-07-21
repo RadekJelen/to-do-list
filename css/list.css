@@ -27,14 +27,30 @@
 	color: #fff;
 	background-color: #1A7B1F;
 	border: none;
-	font-size: 15px;
 	flex-shrink: 0;
+	transition: 0.5s;
 }
 
 .list__button:focus {
 	outline: 2px solid #000;
 }
 
+.list__button:hover{
+	background-color: hsl(123, 65%, 34%)
+}
+
+.list__button:active{
+	background-color: hsl(123, 65%, 39%)
+}
+
 .list__button--remove {
-	background-color: #ED293C;
+	background-color: hsl(348, 83%, 47%);
+}
+
+.list__button--remove:hover {
+	background-color: hsl(348, 83%, 52%);
+}
+
+.list__button--remove:active {
+	background-color: hsl(348, 83%, 57%);
 }
