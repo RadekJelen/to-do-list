@@ -50,8 +50,7 @@
 			});
 		});
 	};
-
-	const render = () => {
+	const renderTasks = () => {
 		let htmlString = "";
 
 		for (const task of tasks) {
@@ -71,8 +70,26 @@
 		};
 
 		document.querySelector(".js-tasks").innerHTML = htmlString;
+	};
 
+	const renderButtons = () => {
+		const buttonsContainer = document.querySelector(".js-textButtons");
+
+		if (tasks.length === 0) {
+			buttonsContainer.innerHTML = "";
+			return;
+		}
+
+		buttonsContainer.innerHTML = `
+			<button> Pokaż ukończone </button>
+			<button> Ukończ wszystkie </button>
+		`;
+	};
+
+	const render = () => {
+		renderTasks();
 		addEvents();
+		renderButtons();
 	};
 
 	const onFormSubmit = (event) => {
