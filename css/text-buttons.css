@@ -1,0 +1,18 @@
+.textButtons {
+  border: none;
+  background-color: transparent;
+  color: hsl(180, 100%, 25%);
+  transition: color 0.5s;
+}
+
+.textButtons:hover {
+  color: hsl(180, 100%, 30%);
+}
+
+.textButtons:active {
+  color: hsl(180, 100%, 35%);
+}
+
+.textButtons:disabled {
+  color: #aaa;
+}
