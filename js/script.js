@@ -1,5 +1,6 @@
 {
 	let tasks = [];
+	let hideDoneTasks = false;
 
 	const autofocusInput = (inputElement) => {
 		inputElement.value = "";
@@ -9,9 +10,7 @@
 	const addNewTask = (newTaskContent) => {
 		tasks = [
 			...tasks,
-			{content: newTaskContent,
-			done: false,
-			},
+			{content: newTaskContent}
 		];
 		render();
 	};
@@ -41,6 +40,11 @@
 		render();
 	};
 
+	const toggleHideDoneTasks = () => {
+		hideDoneTasks = !hideDoneTasks;
+		render();
+	};
+
 	const addTasksEvents = () => {
 		const removeButtons = document.querySelectorAll(".js-remove");
 		const doneButtons = document.querySelectorAll(".js-done");  
@@ -60,8 +64,14 @@
 
 	const addTextButtonsEvents = () => {
 		const markAllTasksDoneButton = document.querySelector(".js-markAllDone");
+		const hideDoneTasksButton = document.querySelector(".js-hideDoneTasks");
+
 		if (markAllTasksDoneButton) {
 			markAllTasksDoneButton.addEventListener("click", markAllTasksDone);
+		};
+
+		if (hideDoneTasksButton) {
+			hideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
 		};
 	};
 
@@ -96,7 +106,7 @@
 		}
 
 		buttonsContainer.innerHTML = `
-			<button> Pokaż ukończone </button>
+			<button class="js-hideDoneTasks"> Pokaż ukończone </button>
 			<button class="js-markAllDone"
 				${tasks.every(({ done }) => done) ? "disabled" : ""}> 
 					Ukończ wszystkie 
