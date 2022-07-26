@@ -33,8 +33,15 @@
 		render();
 	};
 
+	const markAllTasksDone = () => {
+		tasks = tasks.map(task => ({
+			...task,
+			done: true,
+		}));
+		render();
+	};
 
-	const addEvents = () => {
+	const addTasksEvents = () => {
 		const removeButtons = document.querySelectorAll(".js-remove");
 		const doneButtons = document.querySelectorAll(".js-done");  
 
@@ -50,6 +57,14 @@
 			});
 		});
 	};
+
+	const addTextButtonsEvents = () => {
+		const markAllTasksDoneButton = document.querySelector(".js-markAllDone");
+		if (markAllTasksDoneButton) {
+			markAllTasksDoneButton.addEventListener("click", markAllTasksDone);
+		};
+	};
+
 	const renderTasks = () => {
 		let htmlString = "";
 
@@ -72,7 +87,7 @@
 		document.querySelector(".js-tasks").innerHTML = htmlString;
 	};
 
-	const renderButtons = () => {
+	const renderTextButtons = () => {
 		const buttonsContainer = document.querySelector(".js-textButtons");
 
 		if (tasks.length === 0) {
@@ -82,14 +97,15 @@
 
 		buttonsContainer.innerHTML = `
 			<button> Pokaż ukończone </button>
-			<button> Ukończ wszystkie </button>
+			<button class="js-markAllDone"> Ukończ wszystkie </button>
 		`;
 	};
 
 	const render = () => {
 		renderTasks();
-		addEvents();
-		renderButtons();
+		addTasksEvents();
+		renderTextButtons();
+		addTextButtonsEvents();
 	};
 
 	const onFormSubmit = (event) => {
