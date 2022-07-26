@@ -97,7 +97,10 @@
 
 		buttonsContainer.innerHTML = `
 			<button> Pokaż ukończone </button>
-			<button class="js-markAllDone"> Ukończ wszystkie </button>
+			<button class="js-markAllDone"
+				${tasks.every(({ done }) => done) ? "disabled" : ""}> 
+					Ukończ wszystkie 
+			</button>
 		`;
 	};
 
