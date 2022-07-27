@@ -13,6 +13,10 @@ https://radekjelen.github.io/to-do-list/
 
 On this page you can create tasks yourself, delete them from the list and deselect already completed parts.
 
+27.07.22r.
+
+The project has been upgraded with new interesting features. Like hiding completed tasks and quickly deselecting all already completed tasks.
+
 <br>
 
 ## 👀 Preview
@@ -22,6 +26,8 @@ On this page you can create tasks yourself, delete them from the list and desele
 <br>
 
 ## 💻 Tech Stack:
-![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
+- HTML
+- JAVASCRIPT ES6
+- CSS (media-queries, flex-box, grid)
+- BEM
+- Markdown
