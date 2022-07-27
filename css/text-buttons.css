@@ -1,18 +1,31 @@
 .textButtons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.textButtons__button {
+  font-size: 16px;
   border: none;
   background-color: transparent;
   color: hsl(180, 100%, 25%);
   transition: color 0.5s;
 }
 
-.textButtons:hover {
+.textButtons__button:hover {
   color: hsl(180, 100%, 30%);
 }
 
-.textButtons:active {
+.textButtons__button:active {
   color: hsl(180, 100%, 35%);
 }
 
-.textButtons:disabled {
+.textButtons__button:disabled {
   color: #aaa;
+}
+
+@media (max-width: 767px) {
+  .textButtons__button {
+    flex-basis: 100%;
+    margin: 5px;
+  }
 }
