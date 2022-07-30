@@ -10,7 +10,10 @@
 	const addNewTask = (newTaskContent) => {
 		tasks = [
 			...tasks,
-			{content: newTaskContent}
+			{
+				content: newTaskContent,
+				done: false
+			}
 		];
 		render();
 	};
@@ -65,12 +68,13 @@
 	const addTextButtonsEvents = () => {
 		const markAllTasksDoneButton = document.querySelector(".js-markAllDone");
 		const hideDoneTasksButton = document.querySelector(".js-hideDoneTasks");
+		const isAnyDone = tasks.some(({done})=> done);
 
 		if (markAllTasksDoneButton) {
 			markAllTasksDoneButton.addEventListener("click", markAllTasksDone);
 		};
 
-		if (hideDoneTasksButton) {
+		if (hideDoneTasksButton && isAnyDone) {
 			hideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
 		};
 	};
@@ -109,9 +113,11 @@
 			<button class="textButtons__button js-hideDoneTasks">
 				${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
 			</button>
-			<button class="textButtons__button js-markAllDone"
-				${tasks.every(({ done }) => done) ? "disabled" : ""}> 
-					Ukończ wszystkie 
+			<button
+				class="textButtons__button js-markAllDone"
+				${tasks.every(({ done }) => done) ? "disabled" : ""}
+			>
+				Ukończ wszystkie
 			</button>
 		`;
 	};
