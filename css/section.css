@@ -3,20 +3,21 @@
 	margin-bottom: 10px;
 }
 
-.section__title {
-	font-size: 20px;
-	margin: 0;
-}
-
 .section__header {
-	font-size: 20px;
-	margin: 0;
 	padding: 20px;
 	border-bottom: 3px solid #eee;
+}
+
+.section__header--grid {
 	display: grid;
 	grid-template-columns: auto auto;
 	justify-content: space-between;
 	align-items: center;
+}
+
+.section__title {
+	font-size: 20px;
+	margin: 0;
 }
 
 @media (max-width: 767px) {

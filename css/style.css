@@ -11,3 +11,7 @@ html {
 	background-color: #eee;
 	padding: 20px;
 }
+
+button {
+	cursor: pointer;
+}
