@@ -68,13 +68,12 @@
 	const addTextButtonsEvents = () => {
 		const markAllTasksDoneButton = document.querySelector(".js-markAllDone");
 		const hideDoneTasksButton = document.querySelector(".js-hideDoneTasks");
-		const isAnyDone = tasks.some(({done})=> done);
 
 		if (markAllTasksDoneButton) {
 			markAllTasksDoneButton.addEventListener("click", markAllTasksDone);
 		};
 
-		if (hideDoneTasksButton && isAnyDone) {
+		if (hideDoneTasksButton) {
 			hideDoneTasksButton.addEventListener("click", toggleHideDoneTasks);
 		};
 	};
@@ -110,7 +109,10 @@
 		}
 
 		buttonsContainer.innerHTML = `
-			<button class="textButtons__button js-hideDoneTasks">
+			<button 
+				class="textButtons__button js-hideDoneTasks" 
+				${tasks.some(({ done }) => done) ? "" : "disabled"}
+			>
 				${hideDoneTasks ? "Pokaż" : "Ukryj"} ukończone
 			</button>
 			<button
